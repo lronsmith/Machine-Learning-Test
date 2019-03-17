@@ -15,7 +15,7 @@ gx = 250
 gy = 50
 running = True
 MUTATIONS = 200
-DOTS = 1000
+DOTS = 2000
 v = 5
 moves = 850
 dots = {}
@@ -71,14 +71,16 @@ while running:
             DELAY = 0
     if generation >= 15:
         MUTATIONS = 100
-        DOTS = 200
+        DOTS = 1000
     if generation > 50:
         MUTATIONS = 50
-        DOTS = 100
-    if generation > 100:
+        DOTS = 500
+    if generation >= 100:
         MUTATIONS = 30
+        DOTS = 200
     if generation > 150:
         MUTATIONS = 20
+        DOTS = 100
     if generation > 200:
         MUTATIONS = 10
     if generation > 300:
@@ -105,15 +107,19 @@ while running:
             if cx >= 250 and cy >=50 and cx <= 265 and cy <= 65:
                 stats[0] = False
                 stats[4] = time
+                c = (0, 255, 255)
             elif (cx >= 485 or cx <=0 or cy >= 485 or cx <= 0) or (cx >= 125 and cx <= 375 and cy >= 200 and cy <= 215):
                 stats[0] = False
-            else:
+                c = (0, 255, 255)
+            elif stats[0] == True:
                 c = (0, 0, 0)
                 if dot == 0:
                     c = (0, 255, 0)
                 k = stats[3][pos]
                 stats[1] += int(math.sin(k*(math.pi/180))*v)
                 stats[2] -= int(math.cos(k*(math.pi/180))*v)
+        else:
+            c = (0, 255, 255)
         pygame.draw.rect(win, c, (stats[1], stats[2], 6, 6))
         dots[dot] = stats
     pos += 1
