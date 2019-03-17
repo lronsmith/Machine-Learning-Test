@@ -75,7 +75,7 @@ while running:
     if generation > 50:
         MUTATIONS = 1
         DOTS = 100
-    disp.set_caption(f"Generation {generation}")
+    disp.set_caption("Generation {}".format(generation))
     pygame.time.delay(DELAY)
     time += 3
     win.fill((255, 255, 255))
