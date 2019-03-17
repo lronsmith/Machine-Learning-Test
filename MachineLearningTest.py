@@ -6,6 +6,7 @@
 import pygame
 import random
 import math
+import winsound
 pygame.init()
 disp = pygame.display
 win = disp.set_mode((500,500))
@@ -19,6 +20,7 @@ DOTS = 1000
 v = 5
 moves = 850
 dots = {}
+madeIt=False
 for i in range(DOTS):
     turns = []
     for p in range(moves):
@@ -103,6 +105,9 @@ while running:
             if cx >= 250 and cy >=50 and cx <= 265 and cy <= 65:
                 stats[0] = False
                 stats[4] = time
+                if madeIt == False:
+                    madeIt = True
+                    winsound.Beep(500, 200)
             elif (cx >= 485 or cx <=0 or cy >= 485 or cx <= 0) or (cx >= 125 and cx <= 375 and cy >= 200 and cy <= 215):
                 stats[0] = "ooF"
             else:
