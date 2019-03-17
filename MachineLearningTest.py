@@ -70,11 +70,21 @@ while running:
         if DELAY < 0:
             DELAY = 0
     if generation >= 15:
-        MUTATIONS = 10
+        MUTATIONS = 100
         DOTS = 200
     if generation > 50:
-        MUTATIONS = 1
+        MUTATIONS = 50
         DOTS = 100
+    if generation > 100:
+        MUTATIONS = 30
+    if generation > 150:
+        MUTATIONS = 20
+    if generation > 200:
+        MUTATIONS = 10
+    if generation > 300:
+        MUTATIONS = 5
+    if generation > 400:
+        MUTATIONS = 1
     disp.set_caption("Generation {}".format(generation))
     pygame.time.delay(DELAY)
     time += 3
