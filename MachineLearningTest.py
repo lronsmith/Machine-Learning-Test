@@ -55,9 +55,7 @@ def mutate(quack):
     return flip
 
 def ranking(x, y, timer, alive):
-    life = 1000
-    if alive or timer:
-        life = 1
+    life = 1
     if timer:
         return int((((gx-x)**2+(gy-y)**2))*(0.1*timer))
     else:
@@ -106,7 +104,7 @@ while running:
                 stats[0] = False
                 stats[4] = time
             elif (cx >= 485 or cx <=0 or cy >= 485 or cx <= 0) or (cx >= 125 and cx <= 375 and cy >= 200 and cy <= 215):
-                stats[0] = False
+                stats[0] = "ooF"
             else:
                 c = (0, 0, 0)
                 if dot == 0:
