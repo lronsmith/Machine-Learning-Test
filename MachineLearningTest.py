@@ -6,6 +6,7 @@
 import pygame
 import random
 import math
+import winsound
 pygame.init()
 disp = pygame.display
 win = disp.set_mode((500,500))
@@ -19,6 +20,7 @@ DOTS = 2000
 v = 5
 moves = 850
 dots = {}
+madeIt=False
 for i in range(DOTS):
     turns = []
     for p in range(moves):
@@ -55,9 +57,7 @@ def mutate(quack):
     return flip
 
 def ranking(x, y, timer, alive):
-    life = 1000
-    if alive or timer:
-        life = 1
+    life = 1
     if timer:
         return int((((gx-x)**2+(gy-y)**2))*(0.1*timer))
     else:
