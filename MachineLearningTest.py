@@ -7,6 +7,8 @@ import pygame
 import random
 import math
 import winsound
+import os
+random.seed(os.urandom(69))
 pygame.init()
 disp = pygame.display
 win = disp.set_mode((500,500))
@@ -57,11 +59,10 @@ def mutate(quack):
     return flip
 
 def ranking(x, y, timer, alive):
-    life = 1
     if timer:
-        return int((((gx-x)**2+(gy-y)**2))*(0.1*timer))
+        return timer
     else:
-        return int((((gx-x)**2+(gy-y)**2)**0.5)*(25500)*life)
+        return int((((gx-x)**2+(gy-y)**2)**0.5)*(25500))
 while running:
     if pygame.key.get_pressed()[pygame.K_UP]:
         DELAY += 1
@@ -69,6 +70,8 @@ while running:
         DELAY -= 1
         if DELAY < 0:
             DELAY = 0
+    if generation >= 0:
+        DOTS=2000
     if generation >= 15:
         MUTATIONS = 100
         DOTS = 1000
